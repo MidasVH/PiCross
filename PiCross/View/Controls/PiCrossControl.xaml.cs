@@ -4,12 +4,9 @@ using System.Windows.Controls;
 using DataStructures;
 using UIGrid = System.Windows.Controls.Grid;
 
-namespace View.Controls
-{
-    public partial class PiCrossControl : UserControl
-    {
-        public PiCrossControl()
-        {
+namespace View.Controls{
+    public partial class PiCrossControl : UserControl{
+        public PiCrossControl(){
             InitializeComponent();
         }
         
@@ -103,8 +100,7 @@ namespace View.Controls
 
         #region PuzzleData
 
-        public IGrid<object> Grid
-        {
+        public IGrid<object> Grid{
             get { return (IGrid<object>) GetValue( GridProperty ); }
             set { SetValue( GridProperty, value ); }
         }
