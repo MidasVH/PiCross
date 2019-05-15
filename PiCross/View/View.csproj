@@ -70,6 +70,8 @@
     <Compile Include="Controls\PiCrossControl.xaml.cs">
       <DependentUpon>PiCrossControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolConverter.cs" />
+    <Compile Include="Converters\SquareConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
