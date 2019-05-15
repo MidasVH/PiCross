@@ -58,6 +58,9 @@
     <Compile Include="Windows\GameScreen.xaml.cs">
       <DependentUpon>GameScreen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\StartScreen.xaml.cs">
+      <DependentUpon>StartScreen.xaml</DependentUpon>
+    </Compile>
     <Page Include="Controls\PiCrossControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +83,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\GameScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\StartScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

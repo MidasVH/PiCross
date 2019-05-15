@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainScreenViewModel.cs" />
+    <Compile Include="GameScreenViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SquareViewModel.cs" />
+    <Compile Include="StartScreenViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cells\Cells.csproj">

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace View.Windows
 {
     /// <summary>
-    /// Interaction logic for GameScreen.xaml
+    /// Interaction logic for StartScreen.xaml
     /// </summary>
-    public partial class GameScreen : UserControl
+    public partial class StartScreen : UserControl
     {
-        public GameScreen()
+        public StartScreen()
         {
             InitializeComponent();
         }

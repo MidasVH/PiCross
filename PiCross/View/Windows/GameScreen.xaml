@@ -15,10 +15,10 @@
     </UserControl.Resources>
     <Grid>
         
-        <controls:PiCrossControl x:Name="PiCrossControl" RowConstraints="{Binding PlayablePuzzle.RowConstraints}" ColumnConstraints="{Binding PlayablePuzzle.ColumnConstraints}">
+        <controls:PiCrossControl x:Name="PiCrossControl" Grid="{Binding Grid}" RowConstraints="{Binding PlayablePuzzle.RowConstraints}" ColumnConstraints="{Binding PlayablePuzzle.ColumnConstraints}">
             <controls:PiCrossControl.SquareTemplate>
                 <DataTemplate>
-                    <Button>
+                    <Button CommandParameter="{Binding Square}" Command="{Binding Cycle}">
                         <Button.Content>
                             <Rectangle Width="32" Height="32" Stroke="Black" Fill="{Binding Content.Value, Converter={StaticResource SquareConverter}}"/>
                         </Button.Content>
@@ -40,7 +40,7 @@
                                     <TextBlock.Background>
                                         <Binding Path="IsSatisfied.Value">
                                             <Binding.Converter>
-                                                <converters:BoolConverter True="Transparant" False="Green"/>
+                                                <converters:BoolConverter True="Green" False="Transparant"/>
                                             </Binding.Converter>
                                         </Binding>
                                     </TextBlock.Background>
@@ -65,7 +65,7 @@
                                     <TextBlock.Background>
                                         <Binding Path="IsSatisfied.Value">
                                             <Binding.Converter>
-                                                <converters:BoolConverter True="Transparant" False="Green"/>
+                                                <converters:BoolConverter True="Green" False="Transparant"/>
                                             </Binding.Converter>
                                         </Binding>
                                     </TextBlock.Background>
