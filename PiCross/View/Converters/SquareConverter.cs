@@ -9,7 +9,7 @@ using System.Windows.Data;
 
 namespace View.Converters
 {
-    class SquareConverter : IValueConverter
+    public class SquareConverter : IValueConverter
     {
         public object Filled { get; set; }
         public object Empty { get; set; }

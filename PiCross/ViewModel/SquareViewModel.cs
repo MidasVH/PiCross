@@ -49,13 +49,13 @@ namespace ViewModel
         {
             var square = parameter as IPlayablePuzzleSquare;
 
-            if(square.Contents.Value == Square.EMPTY || square.Contents.Value == Square.UNKNOWN)
+            if(square.Contents.Value == Square.FILLED)
             {
-                square.Contents.Value = Square.FILLED;
+                square.Contents.Value = Square.EMPTY;
             }
             else
             {
-                square.Contents.Value = Square.EMPTY;
+                square.Contents.Value = Square.FILLED;
             }
         }
     }

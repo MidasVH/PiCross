@@ -12,15 +12,32 @@
     <UserControl.Resources>
         <converters:SquareConverter x:Key="SquareConverter" Empty="White" Filled="Black" Unknown="Gray"/>
         <converters:BoolConverter x:Key="BoolConverter" True="{x:Static Visibility.Visible}" False="{x:Static Visibility.Hidden}"/>
+
+        <Style TargetType="TextBlock" x:Key="ConstraintText">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="BigText">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="100"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
     </UserControl.Resources>
-    <Grid>
-        
-        <controls:PiCrossControl x:Name="PiCrossControl" Grid="{Binding Grid}" RowConstraints="{Binding PlayablePuzzle.RowConstraints}" ColumnConstraints="{Binding PlayablePuzzle.ColumnConstraints}">
+    <Grid Background="Black">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="PiCross" Style="{StaticResource BigText}"/>
+
+        <controls:PiCrossControl x:Name="PiCrossControl" Grid="{Binding Grid}" RowConstraints="{Binding PlayablePuzzle.RowConstraints}" ColumnConstraints="{Binding PlayablePuzzle.ColumnConstraints}" HorizontalAlignment="Center" Grid.Row="1">
             <controls:PiCrossControl.SquareTemplate>
                 <DataTemplate>
                     <Button CommandParameter="{Binding Square}" Command="{Binding Cycle}">
                         <Button.Content>
-                            <Rectangle Width="32" Height="32" Stroke="Black" Fill="{Binding Content.Value, Converter={StaticResource SquareConverter}}"/>
+                            <Rectangle Width="32" Height="32" Stroke="Black" Fill="{Binding Contents.Value, Converter={StaticResource SquareConverter}}"/>
                         </Button.Content>
                     </Button>
                 </DataTemplate>
@@ -36,7 +53,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Width="32" Height="32" Text="{Binding Value}" Foreground="{Binding IsSatisfied.Value, Converter={StaticResource BoolConverter}}">
+                                <TextBlock Width="32" Height="32" Text="{Binding Value}" Style="{StaticResource ConstraintText}">
                                     <TextBlock.Background>
                                         <Binding Path="IsSatisfied.Value">
                                             <Binding.Converter>
@@ -61,7 +78,7 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Width="32" Height="32" Text="{Binding Value}" Foreground="{Binding IsSatisfied.Value, Converter={StaticResource BoolConverter}}">
+                                <TextBlock Width="32" Height="32" Text="{Binding Value}" Style="{StaticResource ConstraintText}">
                                     <TextBlock.Background>
                                         <Binding Path="IsSatisfied.Value">
                                             <Binding.Converter>
@@ -76,5 +93,9 @@
                 </DataTemplate>
             </controls:PiCrossControl.ColumnConstraintsTemplate>
         </controls:PiCrossControl>
+
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="{Binding PlayablePuzzle.IsSolved.Value, Converter={StaticResource BoolConverter}}" Grid.RowSpan="2">
+            <TextBlock Text="SOLVED!" Style="{StaticResource BigText}"/>
+        </Border>
     </Grid>
 </UserControl>
